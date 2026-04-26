@@ -44,3 +44,50 @@ We recommend using **Python 3.10+** and **PyTorch 2.5.1**. To install the requir
 
 ```bash
 pip install -r requirements.txt
+
+## 📂 Dataset Preparation
+
+1. Download the original ISPRS Potsdam and Vaihingen datasets from the official ISPRS website.
+2. Place the datasets in the Datasets/Potsdam and Datasets/Vaihingen directories.
+3. Run the data preprocessing script to generate patch-based .npz files (all images will be cropped into non-overlapping 256x256 patches):
+
+python create_npz3_RGB.py
+
+## 🚀 Training & Evaluation
+
+Train from scratch:
+
+python train.py --model_name Res16_DualDecoder --batch_size 16 --max_epochs 150
+
+Verify model complexity (Params & GFLOPs):
+
+python test/get_flops.py
+
+Evaluate on test sets:
+
+# For ISPRS Potsdam Dataset
+python test/testGeoDualNetP.py
+
+# For ISPRS Vaihingen Dataset
+python test/testGeoDualNetV.py
+
+## 🔗 Pre-trained Weights
+
+For reproducibility, the pre-trained best weights for GeoDual-Net can be accessed directly from this repository:
+
+- ISPRS Potsdam Dataset: RGBepoch_150.pth (Potsdam)
+- ISPRS Vaihingen Dataset: RGBepoch_150.pth (Vaihingen)
+
+Ensure these .pth files are kept in their respective subdirectories under the weights/ folder before running the test scripts.
+
+## 🎓 Citation
+
+If you find this repository or our work useful, please consider citing our paper:
+
+@article{huang2026geodualnet,
+    title={GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Geospatial Image Segmentation},
+    author={Huang, Xiaoyu and Wang, Yonggui and Zhang, Junming and Ai, Qiang},
+    journal={Computers & Geosciences},
+    year={2026},
+    note={Submitted}
+}
