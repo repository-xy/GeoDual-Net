@@ -44,41 +44,48 @@ We recommend using **Python 3.10+** and **PyTorch 2.5.1**. To install the requir
 
 ```bash
 pip install -r requirements.txt
-
-## 📂 Dataset Preparation
+```
+## 🗄️ Dataset Preparation
 
 1. Download the original ISPRS Potsdam and Vaihingen datasets from the official ISPRS website.
-2. Place the datasets in the Datasets/Potsdam and Datasets/Vaihingen directories.
-3. Run the data preprocessing script to generate patch-based .npz files (all images will be cropped into non-overlapping 256x256 patches):
+2. Place the datasets in the `Datasets/Potsdam` and `Datasets/Vaihingen` directories.
+3. Run the data preprocessing script to generate patch-based `.npz` files (all images will be cropped into non-overlapping 256×256 patches):
 
+```bash
 python create_npz3_RGB.py
-
+```
 ## 🚀 Training & Evaluation
 
-Train from scratch:
+Train from scratch
+To train the GeoDual-Net model, use train.py as the main entry point:
 
+```bash
 python train.py --model_name Res16_DualDecoder --batch_size 16 --max_epochs 150
+```
+Verify model complexity (Params & GFLOPs)
+To verify the number of parameters and computational cost (expected: 10.52M / 17.64G):
 
-Verify model complexity (Params & GFLOPs):
-
+```bash
 python test/get_flops.py
+```
+Evaluate on test sets
+To run evaluation on the respective ISPRS test sets:
 
-Evaluate on test sets:
-
+```bash
 # For ISPRS Potsdam Dataset
 python test/testGeoDualNetP.py
 
 # For ISPRS Vaihingen Dataset
 python test/testGeoDualNetV.py
-
+```
 ## 🔗 Pre-trained Weights
 
 For reproducibility, the pre-trained best weights for GeoDual-Net can be accessed directly from this repository:
 
-- ISPRS Potsdam Dataset: RGBepoch_150.pth (Potsdam)
-- ISPRS Vaihingen Dataset: RGBepoch_150.pth (Vaihingen)
+- **ISPRS Potsdam Dataset**: `weights/potsdam/RGBepoch_150.pth`
+- **ISPRS Vaihingen Dataset**: `weights/vaihingen/RGBepoch_150.pth`
 
-Ensure these .pth files are kept in their respective subdirectories under the weights/ folder before running the test scripts.
+Ensure these `.pth` files are placed in the correct subdirectories under the `weights/` folder before running the test scripts.
 
 ## 🎓 Citation
 
