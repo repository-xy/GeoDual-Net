@@ -1,14 +1,14 @@
-# GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Geospatial Image Segmentation
+# GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Remote Sensing Image Segmentation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository contains the official PyTorch implementation of the paper: **GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Geospatial Image Segmentation**.
+This repository contains the official PyTorch implementation of the paper: **GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Remote Sensing Image Segmentation**.
 
 ## 📝 Overview & Abstract
 
-High-resolution geospatial image segmentation faces significant challenges due to the extreme spatial complexity of urban landscapes. Current methods face inherent architectural trade-offs: Convolutional Neural Networks (CNNs) lack long-range dependency modeling, Vision Transformers (ViTs) demand excessive computation, and conventional skip connections often propagate shallow background noise.
+High-resolution semantic segmentation of remote sensing imagery is frequently hindered by the intricate spatial heterogeneity of urban environments and the performance bottlenecks of existing architectures. Current methods face inherent trade-offs: Convolutional Neural Networks (CNNs) struggle with long-range context, Vision Transformers (ViTs) incur prohibitive computational costs, and conventional feature propagation often amplifies shallow spectral confusion.
 
-**GeoDual-Net** is proposed as a lightweight and accurate segmentation network to address these bottlenecks. It achieves a favorable balance between lightweight design and competitive accuracy, making it highly suitable for resource-constrained geospatial applications.
+**GeoDual-Net** is introduced as a computationally efficient framework designed to resolve these trade-offs. It achieves a superior balance between lightweight design and competitive accuracy, making it highly suitable for resource-constrained Earth observation tasks, such as edge computing on airborne or spaceborne platforms.
 
 ## 🏗️ Architecture Design
 
@@ -94,9 +94,9 @@ If you find this repository or our work useful, please consider citing our paper
 
 ```bibtex
 @article{huang2026geodualnet,
-    title={GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Geospatial Image Segmentation},
+    title={GeoDual-Net: A Lightweight Heterogeneous Dual-Decoder for Remote Sensing Image Segmentation},
     author={Huang, Xiaoyu and Wang, Yonggui and Zhang, Junming and Ai, Qiang},
-    journal={Computers & Geosciences},
+    journal={International Journal of Remote Sensing},
     year={2026},
     note={Submitted}
 ```
